@@ -23,7 +23,8 @@ WORKDIR /var/www
 
 COPY composer.json composer.lock ./
 
-RUN composer install --no-dev --prefer-dist --no-interaction --no-progress
+# 🔥 THIS IS THE KEY LINE
+RUN composer install --no-dev --prefer-dist --no-interaction --no-progress --ignore-platform-reqs
 
 COPY . .
 
